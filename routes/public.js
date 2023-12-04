@@ -16,12 +16,12 @@ else
     }
 }
 
-router.post('/register', [signatureSigner], RegisterController.registerUser);
-router.post('/activate-account', [signatureSigner, dataGuard], RegisterController.activateAccount);
-router.post('/resend-code', [signatureSigner, dataGuard], RegisterController.resendCode);
+// router.post('/register', [signatureSigner], RegisterController.registerUser);
+// router.post('/activate-account', [signatureSigner, dataGuard], RegisterController.activateAccount);
+// router.post('/resend-code', [signatureSigner, dataGuard], RegisterController.resendCode);
 router.post('/login', [signatureSigner, dataGuard], LoginController.login);
-router.post('/forgot-password', [signatureSigner, dataGuard], RegisterController.forgotPassword);
-router.post('/validate-reset-code', [signatureSigner, dataGuard], RegisterController.validateForgotCode);
-router.post('/change-password', [signatureSigner, dataGuard], RegisterController.changePassword);
+// router.post('/forgot-password', [signatureSigner, dataGuard], RegisterController.forgotPassword);
+// router.post('/validate-reset-code', [signatureSigner, dataGuard], RegisterController.validateForgotCode);
+// router.post('/change-password', [signatureSigner, dataGuard], RegisterController.changePassword);
 
 module.exports = router;   

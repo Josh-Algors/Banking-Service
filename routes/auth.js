@@ -23,17 +23,17 @@ else
     }
 }
 
-router.get('/dashboard', [jwtMiddleWare, signatureSigner, dataGuard], UserController.dashboard);
+// router.get('/dashboard', [jwtMiddleWare, signatureSigner, dataGuard], UserController.dashboard);
 
-router.get('/profile', [jwtMiddleWare, signatureSigner, dataGuard], UserController.getProfile);
-router.put('/profile', [jwtMiddleWare, signatureSigner, dataGuard], UserController.updateProfile);
-router.post('/profile/set-transaction-pin', [jwtMiddleWare, signatureSigner, dataGuard], UserController.setTrasactionPin);
+// router.get('/profile', [jwtMiddleWare, signatureSigner, dataGuard], UserController.getProfile);
+// router.put('/profile', [jwtMiddleWare, signatureSigner, dataGuard], UserController.updateProfile);
+// router.post('/profile/set-transaction-pin', [jwtMiddleWare, signatureSigner, dataGuard], UserController.setTrasactionPin);
 
 
 router.post('/transfer/verify-account', [jwtMiddleWare, signatureSigner, dataGuard], TransferController.verifyAccount);
 router.post('/transfer/is-enter-pin', [jwtMiddleWare, signatureSigner, dataGuard], TransferController.continueVerify);
-router.post('/transfer/verify-pin', [jwtMiddleWare, signatureSigner, dataGuard], UserController.updateProfile);
-router.post('/transfer/send-money', [jwtMiddleWare, signatureSigner, dataGuard], UserController.setTrasactionPin);
+router.post('/transfer/verify-pin', [jwtMiddleWare, signatureSigner, dataGuard], TransferController.verifyPin);
+// router.post('/transfer/send-money', [jwtMiddleWare, signatureSigner, dataGuard], UserController.setTrasactionPin);
 
 
 
