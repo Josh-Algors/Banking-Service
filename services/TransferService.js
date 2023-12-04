@@ -3,6 +3,7 @@ const axios = require('axios');
 const res = require('express/lib/response');
 const Joi = require('joi');
 const userRepository = require("../repositories/UserRepository");
+const walletRepository = require("../repositories/WalletRepository");
 const mailService = require("../services/MailService");
 const helpers = require("../config/helpers");
 const bcrypt = require('bcryptjs');
@@ -14,7 +15,7 @@ const verifyAccount = async (req, res, next) => {
     const registerSchema = Joi.object().keys({
         account_number: Joi.string().required(),
         bank_name: Joi.string().required(),
-        amount : Joi.string().required
+        amount : Joi.string().required()
     }).unknown();
   
     const validate = registerSchema.validate(req.body)
@@ -49,7 +50,7 @@ const verifyAccount = async (req, res, next) => {
     }
 
     
-    const checkWallet = await walletRepository.getUserInfo(account_number, bank_name);
+    const checkWallet = await walletRepository.getUserInfo(account_number);
 
     if(!checkWallet)
     {
